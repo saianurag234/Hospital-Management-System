@@ -1,5 +1,5 @@
 import streamlit as st
-from datetime import datetime
+from datetime import datetime,timezone
 from SQL_connection import create_server_connection, execute_query
 from utils import *
 from secret.credentials import *
@@ -21,7 +21,7 @@ appointment_date = st.date_input(
     'Select a Date', min_value=datetime.date.today())
 
 current_date = dt.date.today()
-current_time = dt.datetime.now().time()
+current_time = datetime.now(timezone.utc).time()
 
 if doctor_name and appointment_date:
     doctor_id = get_doctors_id(db_connection, doctor_name)
