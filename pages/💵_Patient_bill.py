@@ -52,7 +52,7 @@ if st.button("Generate Bill"):
     df = pd.DataFrame(lab_test_summary, columns=[
         'Test Name', 'Test Count', 'Total Cost'])
 
-   total_cost = (df['Test Count']*df['Total Cost']).sum()
+    total_cost = (df['Test Count']*df['Total Cost']).sum()
 
     df.loc[len(df.index)] = ['Total', '', total_cost]
 
