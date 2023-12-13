@@ -6,6 +6,12 @@ from secret.credentials import *
 import datetime as dt
 from streamlit_extras.switch_page_button import switch_page
 
+import pytz
+
+local_tz = pytz.timezone('Asia/Kolkata')  
+current_time = datetime.now(local_tz).time()  
+st.title(current_time)
+
 st.title('Doctor Appointment Booking')
 
 db_connection = create_server_connection(host, username, password, database)
