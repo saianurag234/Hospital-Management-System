@@ -1,5 +1,6 @@
 import streamlit as st
-from datetime import datetime,timezone
+from datetime import datetime
+import pytz
 from SQL_connection import create_server_connection, execute_query
 from utils import *
 from secret.credentials import *
@@ -21,7 +22,8 @@ appointment_date = st.date_input(
     'Select a Date', min_value=datetime.date.today())
 
 current_date = dt.date.today()
-current_time = datetime.now(timezone.utc).time()
+local_tz = pytz.timezone('Asia/Kolkata')  
+current_time = datetime.now(local_tz).time()
 st.header(current_time)
 
 if doctor_name and appointment_date:
