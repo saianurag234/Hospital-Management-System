@@ -1,18 +1,10 @@
 import streamlit as st
 from datetime import datetime
-import pytz
 from SQL_connection import create_server_connection, execute_query
 from utils import *
 from secret.credentials import *
 import datetime as dt
 from streamlit_extras.switch_page_button import switch_page
-
-import pytz
-
-local_tz = pytz.timezone('Asia/Kolkata')  
-current_time = datetime.now(local_tz).time()  
-
-st.header(current_time)
 
 st.title('Doctor Appointment Booking')
 
