@@ -1,12 +1,10 @@
 import streamlit as st
+from datetime import datetime
 from SQL_connection import create_server_connection, execute_query
 from utils import *
 from secret.credentials import *
-import datetime
+import datetime as dt
 from streamlit_extras.switch_page_button import switch_page
-
-import pytz
-
 
 st.title('Doctor Appointment Booking')
 
@@ -22,10 +20,8 @@ doctor_name = st.selectbox(
 appointment_date = st.date_input(
     'Select a Date', min_value=datetime.date.today())
 
-current_date = datetime.date.today()
-current_time = datetime.datetime.now().time()
-
-st.header(datetime.datetime.now(datetime.timezone.utc).time())
+current_date = dt.date.today()
+current_time = dt.datetime.now().time()
 
 if doctor_name and appointment_date:
     doctor_id = get_doctors_id(db_connection, doctor_name)
