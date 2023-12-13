@@ -1,5 +1,5 @@
 import streamlit as st
-from datetime import datetime
+from datetime import datetime, date
 import pytz
 from SQL_connection import create_server_connection, execute_query
 from utils import *
@@ -19,10 +19,10 @@ doctor_name = st.selectbox(
 )
 
 appointment_date = st.date_input(
-    'Select a Date', min_value=datetime.date.today())
+    'Select a Date', min_value=date.today())
 
-current_date = dt.date.today()
-local_tz = pytz.timezone('Asia/Kolkata')  
+current_date = date.today()
+local_tz = pytz.timezone('Asia/Kolkata')
 current_time = datetime.now(local_tz).time()
 st.header(current_time)
 
