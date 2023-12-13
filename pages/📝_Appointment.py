@@ -1,9 +1,8 @@
 import streamlit as st
-from datetime import datetime
 from SQL_connection import create_server_connection, execute_query
 from utils import *
 from secret.credentials import *
-import datetime as dt
+import datetime
 from streamlit_extras.switch_page_button import switch_page
 
 import pytz
@@ -23,8 +22,8 @@ doctor_name = st.selectbox(
 appointment_date = st.date_input(
     'Select a Date', min_value=datetime.date.today())
 
-current_date = dt.date.today()
-current_time = dt.datetime.now().time()
+current_date = datetime.date.today()
+current_time = datetime.datetime.now().time()
 
 st.header(datetime.datetime.now(datetime.timezone.utc).time())
 
