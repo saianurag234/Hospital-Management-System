@@ -22,7 +22,6 @@ appointment_date = st.date_input(
 
 current_date = dt.date.today()
 current_time = dt.datetime.now().time()
-st.header(current_time)
 
 if doctor_name and appointment_date:
     doctor_id = get_doctors_id(db_connection, doctor_name)
