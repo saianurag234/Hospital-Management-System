@@ -15,7 +15,7 @@ department = st.selectbox('Department', ['', 'Cardiology', 'Neurology', 'Oncolog
                           'ENT', 'Orthopedics', 'Dental', 'Gastroenterology', 'Dermatology'])
 experience = st.number_input(
     'Years of Experience', min_value=0, max_value=80, step=1)
-is_active = st.checkbox('Is Active', value=True)
+is_active = True
 
 st.subheader(" ")
 submit_button = st.button(label='Submit')
