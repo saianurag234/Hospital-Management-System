@@ -110,15 +110,15 @@ col1, spacer1, col2, spacer2, col3 = st.columns([1, 0.2, 1, 0.2, 1])
 
 with col1:
     image_with_caption_button(
-        "ADMIN", "C:/Users/hp/Desktop/HMS/ADMIN.jpg", "admin")
+        "ADMIN", "icons/ADMIN.jpg", "admin")
 
 with col2:
     image_with_caption_button(
-        "DOCTOR", "C:/Users/hp/Desktop/HMS/Doctor.jpg", "doctor")
+        "DOCTOR", "icons/Doctor.jpg", "doctor")
 
 with col3:
     image_with_caption_button(
-        "PATIENT", "C:/Users/hp/Desktop/HMS/patient.png", "patient")
+        "PATIENT", "icons/patient.png", "patient")
 
 # Display different content based on the current page
 if st.session_state['current_page'] == 'admin':
