@@ -114,15 +114,15 @@ col1, spacer1, col2, spacer2, col3 = st.columns(
 
 with col1:
     image_with_caption_button(
-        "REGISTER DOCTOR", "C:/Users/hp/Desktop/HMS/Doctor.jpg", "Register_Doctor")
+        "REGISTER DOCTOR", "icons/Doctor.jpg", "Register_Doctor")
 
 with col2:
     image_with_caption_button(
-        "DIAGNOSIS CENTER", "C:/Users/hp/Desktop/HMS/Lab.png", "Diagnosis_Centre")
+        "DIAGNOSIS CENTER", "icons/Lab.png", "Diagnosis_Centre")
 
 with col3:
     image_with_caption_button(
-        "BOOK A ROOM", "C:/Users/hp/Desktop/HMS/room.png", "rooms")
+        "BOOK A ROOM", "icons/room.png", "rooms")
 
 st.title("")
 
