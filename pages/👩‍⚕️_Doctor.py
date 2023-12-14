@@ -111,19 +111,19 @@ col1, spacer1, col2, spacer2, col3, spacer3, col4 = st.columns(
 
 with col1:
     image_with_caption_button(
-        "PATIENT DETAILS", "C:/Users/hp/Desktop/HMS/doctor_patient.png", "get_patient_details")
+        "PATIENT DETAILS", "icons/doctor_patient.png", "get_patient_details")
 
 with col2:
     image_with_caption_button(
-        "PATIENT REPORTS", "C:/Users/hp/Desktop/HMS/doctor_reports.png", "get_patient_reports")
+        "PATIENT REPORTS", "icons/doctor_reports.png", "get_patient_reports")
 
 with col3:
     image_with_caption_button(
-        "PATIENT PRESCRIPTION", "C:/Users/hp/Desktop/HMS/doctor_prescription.png", "get_patient_prescription")
+        "PATIENT PRESCRIPTION", "icons/doctor_prescription.png", "get_patient_prescription")
 
 with col4:
     image_with_caption_button(
-        "CHECK APPOINMNET", "C:/Users/hp/Desktop/HMS/doctor_appointment.png", "get_doctor_appoinmnets")
+        "CHECK APPOINMNET", "icons/doctor_appointment.png", "get_doctor_appoinmnets")
 
 
 if st.session_state['current_page'] == 'get_patient_details':
