@@ -124,7 +124,7 @@ with col3:
 if st.session_state['current_page'] == 'admin':
     switch_page("Admin_login")
 elif st.session_state['current_page'] == 'doctor':
-    switch_page("Doctor")
+    switch_page("Doctor_login")
 elif st.session_state['current_page'] == 'patient':
     switch_page("Patient")
 else:
