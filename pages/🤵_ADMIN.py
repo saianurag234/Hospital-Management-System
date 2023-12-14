@@ -114,15 +114,15 @@ col1, spacer1, col2, spacer2, col3 = st.columns(
 
 with col1:
     image_with_caption_button(
-        "REGISTER DOCTOR", "C:/Users/hp/Desktop/HMS/Doctor.jpg", "Register_Doctor")
+        "REGISTER DOCTOR", "icons/Doctor.jpg", "Register_Doctor")
 
 with col2:
     image_with_caption_button(
-        "DIAGNOSIS CENTER", "C:/Users/hp/Desktop/HMS/Lab.png", "Diagnosis_Centre")
+        "DIAGNOSIS CENTER", "icons/Lab.png", "Diagnosis_Centre")
 
 with col3:
     image_with_caption_button(
-        "BOOK A ROOM", "C:/Users/hp/Desktop/HMS/room.png", "rooms")
+        "BOOK A ROOM", "icons/room.png", "rooms")
 
 st.title("")
 
@@ -130,15 +130,15 @@ col4, spacer3, col5, spacer4, col6 = st.columns(
     [1, 0.2, 1, 0.2, 1])
 with col4:
     image_with_caption_button(
-        "PHARMACY", "C:/Users/hp/Desktop/HMS/Pharmacy.png", "Pharmacy")
+        "PHARMACY", "icons/Pharmacy.png", "Pharmacy")
 
 with col5:
     image_with_caption_button(
-        "PATIENT BILLS", "C:/Users/hp/Desktop/HMS/hospital_bill.png", "patient_bills")
+        "PATIENT BILLS", "icons/hospital_bill.png", "patient_bills")
 
 with col6:
     image_with_caption_button(
-        "PATIENT REPORTS", "C:/Users/hp/Desktop/HMS/doctor_patient_reporst.png", "patient_lab_reports")
+        "PATIENT REPORTS", "icons/doctor_patient_reporst.png", "patient_lab_reports")
 
 # Display different content based on the current page
 if st.session_state['current_page'] == 'Register_Doctor':
