@@ -82,6 +82,11 @@ with col2:
     st.markdown("<h1 style='text-align: center;'>Welcome to Doctor Dashboard</h1>",
                 unsafe_allow_html=True)
 
+with col3:
+    if st.button("Logout"):
+        st.session_state['current_page'] = 'home'
+        switch_page("app")
+
 
 def img_to_base64(image_path):
     with open(image_path, "rb") as img_file:
