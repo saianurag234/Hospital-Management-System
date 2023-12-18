@@ -80,11 +80,16 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Main title
-st.markdown("<h1>Welcome to ADMIN Dashboard</h1>",
-            unsafe_allow_html=True)
+col1, col2, col3 = st.columns([1.5, 6, 1.3])
+with col2:
+    st.markdown("<h1 style='text-align: center;'>Welcome to ADMIN Dashboard</h1>",
+                unsafe_allow_html=True)
 
-# Function to convert image file to base64
+with col3:
+    if st.button("Logout"):
+        st.session_state['current_page'] = 'home'
+        switch_page("app")
+
 
 
 def img_to_base64(image_path):
