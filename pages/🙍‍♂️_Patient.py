@@ -75,16 +75,8 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-col1, col2, col3 = st.columns([1.5, 6, 1.3])
-with col2:
-    st.markdown("<h1 style='text-align: center;'>Welcome to Patient Dashboard</h1>",
+st.markdown("<h1 style='text-align: center;'>Welcome to Patient Dashboard</h1>",
                 unsafe_allow_html=True)
-
-with col3:
-    if st.button("Logout"):
-        st.session_state['current_page'] = 'home'
-        switch_page("app")
-
 
 def img_to_base64(image_path):
     with open(image_path, "rb") as img_file:
