@@ -62,7 +62,7 @@ st.markdown(
         border-radius: 0.5em;
         padding: 0.5em 1em;
         margin-top: 0.3em;
-        margin-left: 4.5em;
+        margin-left: 5.5em;
         box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
         cursor: pointer;
         transition: transform 0.3s, box-shadow 0.3s;
