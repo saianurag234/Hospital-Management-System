@@ -44,8 +44,6 @@ blood_group = st.selectbox(
     'Blood Group', ['', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'])
 tobacco_usage = st.checkbox('Tobacco Usage')
 alcohol_intake = st.checkbox('Alcohol Intake')
-allergies = st.text_area('Allergies')
-st.header(allergies)
 is_diabetic = st.checkbox('Is Diabetic')
 is_having_bp = st.checkbox('Is Having Blood Pressure')
 
@@ -110,7 +108,7 @@ if submit_button:
             patient_id, address, city, zipcode, state, country)
 
         patient_medical_background_tuple = (
-            patient_id, weight, blood_group, tobacco_usage, alcohol_intake, allergies, is_diabetic, is_having_bp)
+            patient_id, weight, blood_group, tobacco_usage, alcohol_intake, is_diabetic, is_having_bp)
 
         health_insurance_data = (
             patient_id, health_insurance_id, provider_name, coverage_plan, coverage_is_under)
@@ -132,10 +130,10 @@ if submit_button:
                                         """
 
         insert_patient_medical_background_query = f"""
-                                            INSERT INTO PatientMedicalBackground (PatientID, Weight, BloodGroup, TobaccoUsage, AlcoholIntake, Allergies, IsDiabetic, IsHavingBP)
+                                            INSERT INTO PatientMedicalBackground (PatientID, Weight, BloodGroup, TobaccoUsage, AlcoholIntake, IsDiabetic, IsHavingBP)
                                                         VALUES ('{patient_medical_background_tuple[0]}', '{patient_medical_background_tuple[1]}', '{patient_medical_background_tuple[2]}',
                                                                     {patient_medical_background_tuple[3]}, {patient_medical_background_tuple[4]}, '{patient_medical_background_tuple[5]}',
-                                                                    {patient_medical_background_tuple[6]}, {patient_medical_background_tuple[7]});
+                                                                    {patient_medical_background_tuple[6]});
                                         """
 
     db_connection = create_server_connection(
