@@ -118,12 +118,23 @@ def get_medicine_stock(connection, search_term):
     return execute_read_query(connection, query, (search_term_like,))
 
 
+def get_medicine_available(db_connection, medicine_id):
+    query = "SELECT QuantityAvailable FROM Pharmacy WHERE MedicineID = %s"
+    results = execute_read_query(db_connection, query, (medicine_id,))
+
+    if results:
+        return results[0][0]
+    else:
+        return None
+
+
 def update_stock(connection, medicine_id, quantity):
     query = f"""
     UPDATE Pharmacy
     SET QuantityAvailable = {quantity}
-    WHERE MedicineID = {medicine_id};
+    WHERE MedicineID = {medicine_id}
     """
+
     return execute_query(connection, query)
 
 
