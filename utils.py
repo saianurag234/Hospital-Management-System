@@ -182,7 +182,7 @@ def get_patient_details(db_connection, patient_id):
 
 def get_patient_medical_info(db_connection, patient_id):
     medical_background_query = """
-    SELECT Weight, BloodGroup, TobaccoUsage, AlcoholIntake, Allergies, IsDiabetic, IsHavingBP
+    SELECT Weight, BloodGroup, TobaccoUsage, AlcoholIntake, IsDiabetic, IsHavingBP
     FROM PatientMedicalBackground
     WHERE PatientID = %s;
     """
