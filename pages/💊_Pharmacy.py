@@ -36,15 +36,31 @@ with st.form(key='search_medicine'):
 
 st.header("")
 
+
 with st.form(key='update_stock'):
     st.subheader('Update Medicine Stock')
     medicine_id_to_update = st.number_input('Enter Medicine ID', min_value=0)
-    new_quantity = st.number_input('Enter New Stock Quantity', min_value=0)
+    type_of_update = st.selectbox('Stock Updation', [' ', 'Sales', 'Re-Stock'])
+    current_stock = get_medicine_available(
+        db_connection, medicine_id_to_update)
+
+    new_quantity = st.number_input('Enter Quantity', min_value=0)
+
+    if type_of_update == 'Re-Stock':
+        update_quantity = current_stock + new_quantity
+    elif type_of_update == 'Sales':
+        if new_quantity > current_stock:
+            st.error("Error: Selling quantity is greater than current stock.")
+        else:
+            update_quantity = current_stock - new_quantity
+
     update_stock_button = st.form_submit_button('Update Stock')
+
     if update_stock_button and medicine_id_to_update > 0:
-        update_stock(
-            db_connection, medicine_id_to_update, new_quantity)
-        st.success("Medicine Stoke Updated Successfully")
+        if type_of_update != 'Sales' or new_quantity <= current_stock:
+            update_stock(db_connection, medicine_id_to_update, update_quantity)
+            st.success("Medicine Stock Updated Successfully")
+
 
 st.header("")
 
