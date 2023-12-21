@@ -140,6 +140,7 @@ def main():
         if result:
             st.success("LOGIN SUCCESSFUL")
             st.session_state['current_page'] = "Doctor"
+            st.session_state['doctor_id'] = doctor_id
             switch_page("Doctor")
         else:
             st.warning("Check the entered Doctor ID, Username, or Password")
