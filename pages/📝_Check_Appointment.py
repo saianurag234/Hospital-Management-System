@@ -7,12 +7,13 @@ from streamlit_extras.switch_page_button import switch_page
 
 st.title('Doctor\'s Daily Appointments')
 
-doctor_id = int(st.text_input('Doctor ID', '0'))
+st.title(" ")
 
 
 if st.button('Show Today\'s Appointments'):
     db_connection = create_server_connection(
         host, username, password, database)
+    doctor_id = int(st.session_state['doctor_id'])
     appointments = get_todays_appointments_for_doctor(db_connection, doctor_id)
 
     if appointments:
