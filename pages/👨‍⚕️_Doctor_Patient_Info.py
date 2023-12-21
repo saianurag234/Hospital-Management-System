@@ -36,7 +36,7 @@ if st.button('Get Patient Information'):
         medical_info = get_patient_medical_info(db_connection, patient_id)
         if medical_info:
             medical_background_df = pd.DataFrame([medical_info[0]], columns=[
-                'Weight', 'Blood Group', 'Tobacco Usage', 'Alcohol Intake', 'Allergies', 'Diabetic', 'Blood Pressure Issues'])
+                'Weight', 'Blood Group', 'Tobacco Usage', 'Alcohol Intake', 'Diabetic', 'Blood Pressure Issues'])
 
             boolean_columns = ['Tobacco Usage', 'Alcohol Intake',
                                'Diabetic', 'Blood Pressure Issues']
