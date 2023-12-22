@@ -305,6 +305,22 @@ def get_patient_test_details(db_connection, patient_id):
     return lab_tests
 
 
+def get_medicine_id_for_names(db_connection, medicine_name):
+    medicine_id_query = "SELECT MedicineID FROM Medicine WHERE Name = %s"
+
+    try:
+        result = execute_read_query(
+            db_connection, medicine_id_query, (medicine_name,))
+
+        if result:
+            return result[0][0]
+        else:
+            return None
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return None
+
+
 def execute_read_query(db_connection, query, params):
     with db_connection.cursor() as cursor:
         cursor.execute(query, params)
