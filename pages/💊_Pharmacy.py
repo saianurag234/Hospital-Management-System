@@ -38,35 +38,31 @@ st.header("")
 
 
 with st.form(key='update_stock'):
-    st.subheader('Update Medicine Stock')
-    medicine_name = st.selectbox(
-        'Enter the name of the medicine', ['']+medicine_name)
+        st.subheader('Update Medicine Stock')
 
-    medicine_id_to_update = get_medicine_id_for_names(
-        db_connection, medicine_name)
+        medicine_name = st.selectbox('Enter the name of the medicine', [''] + medicine_names)
+        medicine_id_to_update = get_medicine_id_for_names(db_connection, medicine_name)
 
-    type_of_update = st.selectbox('Stock Updation', [' ', 'Sales', 'Re-Stock'])
+        current_stock = get_medicine_available(db_connection, medicine_id_to_update)
 
-    current_stock = get_medicine_available(
-        db_connection, medicine_id_to_update)
+        type_of_update = st.selectbox('Stock Updation', [' ', 'Sales', 'Re-Stock'])
 
-    new_quantity = st.number_input('Enter Quantity', min_value=0)
+        new_quantity = st.number_input('Enter Quantity', min_value=0)
 
-    if type_of_update == 'Re-Stock':
-        update_quantity = current_stock + new_quantity
-    elif type_of_update == 'Sales':
-        if new_quantity > current_stock:
-            st.error("Error: Selling quantity is greater than current stock.")
-        else:
-            update_quantity = current_stock - new_quantity
+        submit_button = st.form_submit_button('Update Stock')
 
-    update_stock_button = st.form_submit_button('Update Stock')
+    if submit_button:
+        if medicine_id_to_update > 0:
+            if type_of_update == 'Re-Stock':
+                update_quantity = current_stock + new_quantity
+            elif type_of_update == 'Sales':
+                if new_quantity > current_stock:
+                    st.error("Error: Selling quantity is greater than current stock.")
+                    return
+                update_quantity = current_stock - new_quantity
 
-    if update_stock_button and medicine_id_to_update > 0:
-        if type_of_update != 'Sales' or new_quantity <= current_stock:
             update_stock(db_connection, medicine_id_to_update, update_quantity)
             st.success("Medicine Stock Updated Successfully")
-
 
 
 st.header("")
