@@ -39,8 +39,14 @@ st.header("")
 
 with st.form(key='update_stock'):
     st.subheader('Update Medicine Stock')
-    medicine_id_to_update = st.number_input('Enter Medicine ID', min_value=0)
+    medicine_name = st.selectbox(
+        'Enter the name of the medicine', ['']+medicine_name)
+
+    medicine_id_to_update = get_medicine_id_for_names(
+        db_connection, medicine_name)
+
     type_of_update = st.selectbox('Stock Updation', [' ', 'Sales', 'Re-Stock'])
+
     current_stock = get_medicine_available(
         db_connection, medicine_id_to_update)
 
@@ -60,6 +66,7 @@ with st.form(key='update_stock'):
         if type_of_update != 'Sales' or new_quantity <= current_stock:
             update_stock(db_connection, medicine_id_to_update, update_quantity)
             st.success("Medicine Stock Updated Successfully")
+
 
 
 st.header("")
